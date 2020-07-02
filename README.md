@@ -47,3 +47,22 @@
 <b>Technical Implementation:</b>
 
 <p> To implement the touch sensing, Arduino capsense library has been used. The circuit works by charging and discharging a capacitor. A capacitor is formed by two conductive elements. One is the conductive textile, which is the sensor and the second plate of the capacitor is formed by the human finger. So as the finger comes closer to the sensor, the capacitance increases, due to which the charging time of the capacitor increases, and hence this phenomenon can be used for detecting a touchdown event. The sensor is connected to pin number 2, a 1 MΩ resistor is connected to pin 3. So, this forms a RC circuit.</p>
+
+<h2>Frabrication of Touch Matrix </h2>
+
+<p>After previously implementing capacitive touch sensing using the capsense library, I realized that we need a higher resolution sensing for realizing continuous touch gestures such as swipes. After reading a few papers and tutorials, one of the most common ways to implement continuous touch gestures is through touch matrices. In a touch matrix, there are rows and columns of electrodes. The rows and columns are insulated by a non-conductive material. By using a commercially available touch controller, this matrix consisting of rows and columns can be easily connected to an Arduino.</p>
+
+<h3> Preparing the touch sensor matrix:</h3>
+
+<p>   For initial prototyping, the plan is to prepare a 3x3 matrix (3 rows and 3 columns). For this 6 strips of conductive fabric was cut. All the 6 strips are approximately equal in length and width. The columns were first attached to a ruled paper with a paper adhesive(Glue stick). The ruled paper was used to ensure that the spacing between the rows and columns can be kept consistent to a maximum possible extent. After affixing the columns, a layer of transparent scotch tape was affixed to insulate the rows from columns. Then, the 3 rows of textile strips were affixed on to the scotch tape. the resulting sensor can be sensing.</p>
+
+<h3> Interfacing with the sensor</h3>
+
+<p> To interface the touch matrix a more powerful touch sensing hardware is required, rather than the capsense library. For this, a commercial touch controller(MPR 121), has been used. This touch controller is a very popular touch controller and can detect touch events, for up to 12 electrodes. I2c protocol is used for communicating the touch events between the touch controller and the Arduino. For connecting the touch controller, the SCL pin of the controller is connected to the A5 pin of the Arduino. The SDA pin is connected to A4. The electrode lines from the touch matrix, are connected to the controller via copper tape and jumper wires.</p>
+
+<h2> Lessons Learned </h2>
+
+1. Always ensure that the sizes of the row and column strip should be approximately equal size. Otherwise, the sensor shape will be irregular.
+2. Secondly, always insulate the rows and columns completely. Some times when the width of the scotch tape is smaller then there can be a few gapes between the row and the column layers and this can result in a short circuit.
+3. Always leave some space at the edges of the strips so that they can be used to create connections with the Arduino. In the earlier attempt, I had covered the entire column layer with the scotch tape and hence was not able to connect the strips to the Arduino.
+4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used. 
