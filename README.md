@@ -15,3 +15,22 @@
 <h3>Background:</h3>
 
 <p>There are a number of research works that explored input through textiles. The most related projects are patch in which the authors created pressure-sensitive textile patches that can be worn on the body. Then there Is work on pressure-sensitive textiles for various interactions such as automotive interfaces, interactive furniture, and prosthetics. For capacitive sensing, the most relevant work which is related to this project it Touch in which swept-frequency capacitive sensing is used for detecting the number of gestures.</p>
+
+<h1>Project Implementation</h1>
+<p>For demonstration purposes, the fabric will be attached to the cup, and users can play with the music player and try out the various gestures. The gestures will be displayed on an external screen.</p>
+
+<h3>Design Exploration</h3>
+   <h3>Testing and Identifying sensor placement:<h3>
+
+<p>The initial step which has been considered for this task is to identify the ideal placement of the sensor. The sensor should be placed in such a way that it should not hinder the usual activity that we perform with the cup. For example, considering the pause and play button, Usually, this pause and play button should be quickly accessible, and at the same time, should not invoke false activation.</p>
+
+<p>  If the sensor is placed on the handle, then it results in lots of false positives, because the hand is always in contact with the handle. On the other hand, if the sensor is placed on the rim, it solves the problem of false positives, but it is not easily accessible. One solution could be to place it on the rim near the handle. However, since we usable sip the beverages from the coffee mug, care should be taken to ensure that the sensor should not be touching our lips, when we are drinking. Hense after a few trails and testing, one location which is suitable is on the rim exactly above the handle. </p>
+
+<h3>Design of a textile augmented cup:</h3>
+<p>To check the feasibility of how I can create a textile augmented cup, I initially wrapped a cloth around my cup to give a look and feel of its looks and the ergonomics.</p>
+
+<p>To implement touch sensing, "capsense" library has been used. It's an open-source library that allows for implementing touch sensing, on any conductive object. Since conductive textile was not available, a small piece of copper tape has been used as a touch sensor. After connecting to the circuit, as shown in the figure below, the "capsense" library was downloaded to the Arduino library. After setting up the capacitive sensing in the Arduino library. The WPF application reads the values through the serial port. We can also analyze the values for differentiating between "Touch" and "No Touch" from the  Arduino values.</p>
+
+<h3>Technical Implementation</h3>
+
+<p> To implement the touch sensing, Arduino capsense library has been used. The circuit works by charging and discharging a capacitor. A capacitor is formed by two conductive elements. One is the conductive textile, which is the sensor and the second plate of the capacitor is formed by the human finger. So as the finger comes closer to the sensor, the capacitance increases, due to which the charging time of the capacitor increases, and hence this phenomenon can be used for detecting a touchdown event. As shown below, the sensor is connected to pin number 2, a 1 MΩ resistor is connected to pin 3. So, this forms a RC circuit.</p>
