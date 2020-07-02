@@ -16,6 +16,17 @@
 
 <p>There are a number of research works that explored input through textiles. The most related projects are patch in which the authors created pressure-sensitive textile patches that can be worn on the body. Then there Is work on pressure-sensitive textiles for various interactions such as automotive interfaces, interactive furniture, and prosthetics. For capacitive sensing, the most relevant work which is related to this project it Touch in which swept-frequency capacitive sensing is used for detecting the number of gestures.</p>
 
+<h1>Materials Used</h1>
+
+1. SMD LEDs 
+2. Lithium ION Battery
+3. Needle (for sewing)
+4. Conductive thread
+5. Adafruit flora(Micro Controller) + BLE module 
+6. Copper tape
+7. Temperature sensor (TMP36)
+8. Interactive textile cloth
+
 <h1>Project Implementation</h1>
 <p>For demonstration purposes, the fabric will be attached to the cup, and users can play with the music player and try out the various gestures. The gestures will be displayed on an external screen.</p>
 
