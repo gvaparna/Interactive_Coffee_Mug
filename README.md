@@ -20,7 +20,8 @@
 <p>For demonstration purposes, the fabric will be attached to the cup, and users can play with the music player and try out the various gestures. The gestures will be displayed on an external screen.</p>
 
 <h3>Design Exploration</h3>
-   <h3>Testing and Identifying sensor placement:<h3>
+
+<h3>Testing and Identifying sensor placement:</h3>
 
 <p>The initial step which has been considered for this task is to identify the ideal placement of the sensor. The sensor should be placed in such a way that it should not hinder the usual activity that we perform with the cup. For example, considering the pause and play button, Usually, this pause and play button should be quickly accessible, and at the same time, should not invoke false activation.</p>
 
@@ -31,6 +32,6 @@
 
 <p>To implement touch sensing, "capsense" library has been used. It's an open-source library that allows for implementing touch sensing, on any conductive object. Since conductive textile was not available, a small piece of copper tape has been used as a touch sensor. After connecting to the circuit, as shown in the figure below, the "capsense" library was downloaded to the Arduino library. After setting up the capacitive sensing in the Arduino library. The WPF application reads the values through the serial port. We can also analyze the values for differentiating between "Touch" and "No Touch" from the  Arduino values.</p>
 
-<h3>Technical Implementation</h3>
+<h3>Technical Implementation:</h3>
 
 <p> To implement the touch sensing, Arduino capsense library has been used. The circuit works by charging and discharging a capacitor. A capacitor is formed by two conductive elements. One is the conductive textile, which is the sensor and the second plate of the capacitor is formed by the human finger. So as the finger comes closer to the sensor, the capacitance increases, due to which the charging time of the capacitor increases, and hence this phenomenon can be used for detecting a touchdown event. As shown below, the sensor is connected to pin number 2, a 1 MΩ resistor is connected to pin 3. So, this forms a RC circuit.</p>
