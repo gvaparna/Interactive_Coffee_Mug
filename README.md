@@ -85,6 +85,26 @@ For a 3x3 matrix, there are three rows and three columns which comprise of 6 dif
 Getting accurate coordinates using an interpolation algorithm: By using an interpolation algorithm, we can get the finger's x and y coordinates accurately. For the horizontal coordinates (y co-ordinate), since we use three electrodes (ELE0 – ELE2), the . The formula is: 
 SumN = 1 × Dele(0) + 2 × Dele(1) + 3 × Dele(2) 
 SumD = Dele(0) + Dele(1) + Dele(2)
-Dele(n) (n = 0 to 2) represents the delta value (difference) of electrode-filtered data and its corresponding baseline value. After getting SumN and SumD, then: 
+Dele(n) (n = 0 to 2)
+represents the delta value (difference) of electrode-filtered data and its corresponding baseline value. After getting SumN and SumD, then: 
 Coordinate = SumN ÷ SumD 
 After getting the finger's horizontal coordinate,  the same interpolation method can be used to  to compute the vertical coordinate, using the other three electrodes (ELE3 – ELE5).</p>
+
+<h3>Data Pre-Processing</h3>
+
+<p>To filter the raw capacitance values, a low-pass filter was used.
+The first-order filter formula is: 
+F(n) = α × F(n-1) + β × SP(n) 
+α + β = 1
+Here,
+F(n) represents current filter output value. 
+FO(n-1) represents previous filter output value. 
+SP(n) represents current sample value. 
+α and β are scale factors, which represent the weights of F(n-1) and SP(n) in the first order filter F(n).
+The value of α determines the digital filter effect: the greater the value of A, the smoother the output (but this will sacrifice tracking performance) hence an good trade-off must be chosen.
+The response time is determined by the value of  β: the greater the value of B, the faster the response time is.</p>
+
+<h3>Gesture Recognizer</h3>
+<p>For implementing the gesture recognition, there were two relevant papers which were interesting and very much related to the current project. NailO[1], uses a similar 3x3 matrix and Multi-Touch Skin[2] uses a 6x6 matrix but the touch sensing scheme is different from the current approach.
+For implementing the swipes, a sliding window algorithm needs to be implemented. For a given set of raw values (currently, 100 samples per second), the algorithm runs over a window size of 3 elements and when there is a swipe happening, there will be continuous increase in the capacitive values along the x axis (for horizontal swipe) and along Y axis for vertical swipe. 
+</p>
