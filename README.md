@@ -60,13 +60,6 @@
 
 <p> To interface the touch matrix a more powerful touch sensing hardware is required, rather than the capsense library. For this, a commercial touch controller(MPR 121), has been used. This touch controller is a very popular touch controller and can detect touch events, for up to 12 electrodes. I2c protocol is used for communicating the touch events between the touch controller and the Arduino. For connecting the touch controller, the SCL pin of the controller is connected to the A5 pin of the Arduino. The SDA pin is connected to A4. The electrode lines from the touch matrix, are connected to the controller via copper tape and jumper wires.</p>
 
-<h2> Lessons Learned </h2>
-
-1. Always ensure that the sizes of the row and column strip should be approximately equal size. Otherwise, the sensor shape will be irregular.
-2. Secondly, always insulate the rows and columns completely. Some times when the width of the scotch tape is smaller then there can be a few gapes between the row and the column layers and this can result in a short circuit.
-3. Always leave some space at the edges of the strips so that they can be used to create connections with the Arduino. In the earlier attempt, I had covered the entire column layer with the scotch tape and hence was not able to connect the strips to the Arduino.
-4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used. 
-
 <h3>Gesture Design and Recognition Pipeline</h3>
 
 <p> There are four different gestures I intend to develop:
@@ -108,3 +101,12 @@ The response time is determined by the value of  β: the greater the value of B,
 <p>For implementing the gesture recognition, there were two relevant papers which were interesting and very much related to the current project. NailO[1], uses a similar 3x3 matrix and Multi-Touch Skin[2] uses a 6x6 matrix but the touch sensing scheme is different from the current approach.
 For implementing the swipes, a sliding window algorithm needs to be implemented. For a given set of raw values (currently, 100 samples per second), the algorithm runs over a window size of 3 elements and when there is a swipe happening, there will be continuous increase in the capacitive values along the x axis (for horizontal swipe) and along Y axis for vertical swipe. 
 </p>
+
+
+<h2> Lessons Learned </h2>
+
+1. Always ensure that the sizes of the row and column strip should be approximately equal size. Otherwise, the sensor shape will be irregular.
+2. Secondly, always insulate the rows and columns completely. Some times when the width of the scotch tape is smaller then there can be a few gapes between the row and the column layers and this can result in a short circuit.
+3. Always leave some space at the edges of the strips so that they can be used to create connections with the Arduino. In the earlier attempt, I had covered the entire column layer with the scotch tape and hence was not able to connect the strips to the Arduino.
+4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used. 
+
