@@ -66,3 +66,17 @@
 2. Secondly, always insulate the rows and columns completely. Some times when the width of the scotch tape is smaller then there can be a few gapes between the row and the column layers and this can result in a short circuit.
 3. Always leave some space at the edges of the strips so that they can be used to create connections with the Arduino. In the earlier attempt, I had covered the entire column layer with the scotch tape and hence was not able to connect the strips to the Arduino.
 4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used. 
+
+<h2>Gesture Design and Recognition Pipeline</h2>
+
+<p> There are four different gestures I intend to develop:
+1)	Long Press
+
+2)	Double Tap
+
+3)	Left Swipe
+
+4)	Right Swipe
+The reasons for designing these gestures are: firstly, they are very common, intuitive and are used in daily smartphone based interactions. Hence not special training is needed for users. Secondly, they are also easier to perform when holding a cup. While testing various gestures, I found out that these were also the simpler ones implementation wise give the time-frame of the project.
+For implementing these gestures, I have a done a literature review on how these gestures can be implemented using existing algorithms. Unlike smartphones , tablets and touchscreens, which provide SDKs for implementing Swipe and Tap gestures, there are no such existing SDKs for Arduino. The key challenge here is to identify and understand how to implement these gestures. I spent a considerable amount of time in studying researching and understanding how the touch algorithms work and how gesture recognizers can be built with capacitive sensing data.
+</p>
