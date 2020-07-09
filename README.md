@@ -67,16 +67,24 @@
 3. Always leave some space at the edges of the strips so that they can be used to create connections with the Arduino. In the earlier attempt, I had covered the entire column layer with the scotch tape and hence was not able to connect the strips to the Arduino.
 4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used. 
 
-<h2>Gesture Design and Recognition Pipeline</h2>
+<h3>Gesture Design and Recognition Pipeline</h3>
 
 <p> There are four different gestures I intend to develop:
-1)	Long Press
-
-2)	Double Tap
-
-3)	Left Swipe
-
-4)	Right Swipe
+    1. Long Press
+    2. Double Tap
+    3. Left Swipe
+    4. Right Swipe
 The reasons for designing these gestures are: firstly, they are very common, intuitive and are used in daily smartphone based interactions. Hence not special training is needed for users. Secondly, they are also easier to perform when holding a cup. While testing various gestures, I found out that these were also the simpler ones implementation wise give the time-frame of the project.
 For implementing these gestures, I have a done a literature review on how these gestures can be implemented using existing algorithms. Unlike smartphones , tablets and touchscreens, which provide SDKs for implementing Swipe and Tap gestures, there are no such existing SDKs for Arduino. The key challenge here is to identify and understand how to implement these gestures. I spent a considerable amount of time in studying researching and understanding how the touch algorithms work and how gesture recognizers can be built with capacitive sensing data.
 </p>
+
+<h4>Raw Signal Interpolation</h4>
+<p>The key requirement for detecting continuous touch events is to have touch interpolation i.e. when the finger moves from one electrode to the other, the touch location should be interpolated for smooth and continuous localization of the finger.
+For a 3x3 matrix, there are three rows and three columns which comprise of 6 different channels acting as inputs to the MPR121 touch controller. The MPR 121 touch controller returns the baseline value and filtered value for each channel.
+
+Getting accurate coordinates using an interpolation algorithm: By using an interpolation algorithm, we can get the finger's x and y coordinates accurately. For the horizontal coordinates (y co-ordinate), since we use three electrodes (ELE0 – ELE2), the . The formula is: 
+SumN = 1 × Dele(0) + 2 × Dele(1) + 3 × Dele(2) 
+SumD = Dele(0) + Dele(1) + Dele(2)
+Dele(n) (n = 0 to 2) represents the delta value (difference) of electrode-filtered data and its corresponding baseline value. After getting SumN and SumD, then: 
+Coordinate = SumN ÷ SumD 
+After getting the finger's horizontal coordinate,  the same interpolation method can be used to  to compute the vertical coordinate, using the other three electrodes (ELE3 – ELE5).</p>
