@@ -102,11 +102,20 @@ The response time is determined by the value of  β: the greater the value of B,
 For implementing the swipes, a sliding window algorithm needs to be implemented. For a given set of raw values (currently, 100 samples per second), the algorithm runs over a window size of 3 elements and when there is a swipe happening, there will be continuous increase in the capacitive values along the x axis (for horizontal swipe) and along Y axis for vertical swipe. 
 </p>
 
+<h3>Implementation of sensor debugging software</h3>
+<p>
+To visualize the sensor values from the rows and columns. Debugging software is usually handy. In the debugging software, I display the values of the touch matrix. This will show, the sensor is working or not working. The application is implemented in the cSharp, using Microsoft visual studio. The raw capacitor values from the sensor are read from Arduino using this application, and then these are transformed into a row-column matrix, which is then displayed on a canvas. Currently, the debug software is not showing the full fledged functionality because of loose connection of the sensor, the sensor needs to be refabricated. And once this is done, the gesture recognizer can be easily integrated inside the software.</p>
+<h3>Implementing gesture recogniser</h3>
+    <p>Todo</p>
+<h3>Testing it on the mug</h3>
+<p>Todo</p>
+
 
 <h2> Lessons Learned </h2>
 
 1. Always ensure that the sizes of the row and column strip should be approximately equal size. Otherwise, the sensor shape will be irregular.
 2. Secondly, always insulate the rows and columns completely. Some times when the width of the scotch tape is smaller then there can be a few gapes between the row and the column layers and this can result in a short circuit.
 3. Always leave some space at the edges of the strips so that they can be used to create connections with the Arduino. In the earlier attempt, I had covered the entire column layer with the scotch tape and hence was not able to connect the strips to the Arduino.
-4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used. 
+4. Usage od visual guides for aligning the rows and columns will be very helpful For example, in my case a ruled paper was used.
+5. One of the key problems I faced is in the debugging of the sensor. For example, if the sensor does not work, it's hard to identify which row or column is non-functional.
 
